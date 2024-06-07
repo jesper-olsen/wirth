@@ -1,0 +1,29 @@
+program power;
+{decimal representation of negative powers of 2}
+const 
+  n = 10;
+type 
+  digit = 0..9;
+var 
+  i, k, r: integer;
+  d: array [1..n] of digit;
+begin 
+  for i := 1 to n do
+    d[i] := 0;
+
+  for k := 1 to n do
+  begin 
+    write('.');
+    r := 0;
+    for i := 1 to k - 1 do
+    begin 
+      r := 10 * r + d[i]; 
+      d[i] := r div 2;
+      r := r - 2 * d[i]; 
+      write(chr(d[i] + ord('0')))
+    end;
+    d[k] := 5; 
+    writeln('5')
+  end
+end.
+
